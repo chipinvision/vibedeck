@@ -99,15 +99,6 @@ function App() {
           </div>
         ) : (
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-pink-200">
-                Choose a Deck
-              </h2>
-              <p className="text-gray-400 max-w-2xl">
-                Select a conversation deck to begin. Each deck contains carefully curated questions
-                designed to spark meaningful discussions and create lasting connections.
-              </p>
-            </div>
             <DeckGrid decks={decks} onSelectDeck={selectDeck} />
           </div>
         )}
