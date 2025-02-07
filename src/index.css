@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-gray-100 min-h-screen;
+  }
+}
+
+@layer components {
+  .card-shadow {
+    @apply shadow-xl shadow-pink-500/20;
+  }
+
+  .glass-effect {
+    @apply bg-dark-800/80 backdrop-blur-md border border-white/5;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-pink-600 text-white rounded-xl
+           hover:bg-pink-500 transition-all duration-300
+           transform hover:scale-105 active:scale-95
+           shadow-lg shadow-pink-500/25
+           flex items-center gap-2 font-medium;
+  }
+
+  .card-container {
+    @apply relative w-full max-w-2xl mx-auto glass-effect
+           rounded-2xl p-8 md:p-12
+           transform transition-all duration-500
+           hover:shadow-2xl hover:shadow-pink-500/20;
+  }
+
+  .deck-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  }
+}
+
+/* Deck card styles */
+.deck-card {
+  @apply glass-effect rounded-2xl p-8 transition-all duration-300
+         relative overflow-hidden cursor-pointer
+         border border-white/5 hover:border-pink-500/50
+         transform hover:-translate-y-1 hover:shadow-xl;
+}
+
+.deck-icon {
+  @apply p-3 rounded-xl bg-pink-900/50 text-pink-400
+         transition-all duration-300;
+}
+
+/* Group hover styles */
+.group:hover .deck-icon {
+  @apply bg-pink-800 text-pink-300;
+}
+
+.group:hover .group-hover\:text-pink-300 {
+  @apply text-pink-300;
+}
+
+.group:hover .group-hover\:text-pink-400 {
+  @apply text-pink-400;
+}
+
+.group:hover .group-hover\:translate-x-1 {
+  @apply translate-x-1;
+}
+
+.group:hover .group-hover\:scale-x-100 {
+  @apply scale-x-100;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+}
